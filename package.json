@@ -4,8 +4,10 @@
   "description": "HELP MEEEEEEEEEEEEEEEEEEE",
   "main": "index.js",
   "scripts": {
-    "watch": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_ENV=production node index.js",
+    "watch": "NODE_ENV=development nodemon index.js",
+    "test": "NODE_ENV=test jest --verbose --runInBand --detectOpenHandles",
+    "lint": "eslint ."
   },
   "keywords": [
     "Not",
@@ -15,10 +17,20 @@
   "author": "me",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
+    "jest": "^24.1.0",
+    "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.4.13",
     "nodemon": "^1.18.10"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "supertest": "^3.4.2"
   }
 }
